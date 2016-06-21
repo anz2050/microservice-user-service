@@ -1,0 +1,8 @@
+instances: 1 
+memory: 1024M 
+applications: 
+   - name: user-service 
+     services: 
+       - cameoao-eureka-server 
+     env: 
+       SPRING_PROFILES_ACTIVE: dev 

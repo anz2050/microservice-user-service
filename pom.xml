@@ -9,13 +9,14 @@
 	<packaging>jar</packaging>
 
 	<name>microservice-user-service</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Demo project Spring Boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.3.5.RELEASE</version>
-	</parent>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent> 
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,26 +24,39 @@
 	</properties>
 
 	<dependencyManagement>
-    	<dependencies>
-        	<dependency>
-            	<groupId>org.springframework.cloud</groupId>
-            	<artifactId>spring-cloud-dependencies</artifactId>
-            	<version>Brixton.RELEASE</version>
-            	<type>pom</type>
-            	<scope>import</scope>
-        	</dependency>
-    	</dependencies>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Brixton.SR1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
+	
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka</artifactId>
+			<artifactId>spring-cloud-cloudfoundry-discovery</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter</artifactId>
 		</dependency>
+		
+		<!-- <dependency>
+			<groupId>io.pivotal.spring.cloud</groupId>
+			<artifactId>spring-cloud-services-starter-service-registry</artifactId>
+		</dependency> -->
+		
+		<!-- <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency> -->
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -53,6 +67,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -64,15 +84,15 @@
 		</plugins>
 	</build>
 	
-	<repositories>
-		<repository>
+	 <repositories>
+		<!--<repository>
 			<id>spring-snapshots</id>
 			<name>Spring Snapshots</name>
 			<url>https://repo.spring.io/snapshot</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
-		</repository>
+		</repository>-->
 		<repository>
 			<id>spring-milestones</id>
 			<name>Spring Milestones</name>
@@ -81,6 +101,10 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		<repository> 
+			<id>spring-release</id> 
+			<url>https://repo.spring.io/libs-release</url> 
+		</repository>
 	</repositories>
-
+	
 </project>

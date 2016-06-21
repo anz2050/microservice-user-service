@@ -1,28 +1,45 @@
 # HTTP Server
-server:
-  context-path: /users
-  port: 1111   # HTTP (Tomcat) port
-  
+#server:
+#  context-path: /users
+  #port: 1111   # HTTP (Tomcat) port
+
+# Spring properties
+spring:
+  application:
+     name: ${vcap.application.name}
+  cloud:
+    services:
+      registrationMethod: route 
+
+---
+
+spring:
+  profiles: dev
+
+security:
+  basic:
+    enabled: false
+
 # Discovery Server Access
-eureka:
-  instance:
-    hostname: localhost
-    leaseRenewalIntervalInSeconds: 10  
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+#eureka:
+#  instance:
+#    hostname: localhost
+#    leaseRenewalIntervalInSeconds: 10  
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
 #      healthcheck:
 #        enabled: true   
-    region: default
-    registryFetchIntervalSeconds: 5
-    availabilityZones: 
-      default: ${APPLICATION_DOMAIN:${DOMAIN:defaultZone}} 
+#    region: default
+#    registryFetchIntervalSeconds: 5
+#    availabilityZones: 
+#      default: ${APPLICATION_DOMAIN:${DOMAIN:defaultZone}} 
 
 
 # Endpoint setup
-endpoints:
-  restart:
-    enabled: true
+#endpoints:
+#  restart:
+#    enabled: true
 
 # Logging
 logging:

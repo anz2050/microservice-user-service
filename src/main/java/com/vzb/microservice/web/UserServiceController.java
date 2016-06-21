@@ -18,6 +18,7 @@ import com.vzb.microservice.model.User;
 import com.vzb.microservice.service.UserService;
 
 @RestController
+@RequestMapping(value = "/users")
 public class UserServiceController {
 	
 	@Autowired
