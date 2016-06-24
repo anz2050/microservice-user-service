@@ -1,7 +1,7 @@
 # HTTP Server
-#server:
+server:
 #  context-path: /users
-  #port: 1111   # HTTP (Tomcat) port
+  port: ${vcap.PORT}   # HTTP (Tomcat) port
 
 # Spring properties
 spring:
@@ -15,11 +15,20 @@ spring:
 
 spring:
   profiles: dev
-
+---
 security:
   basic:
     enabled: false
 
+---
+
+# Logging
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: INFO
+
+#---
 # Discovery Server Access
 #eureka:
 #  instance:
@@ -41,8 +50,3 @@ security:
 #  restart:
 #    enabled: true
 
-# Logging
-logging:
-  level:
-    ROOT: INFO
-    org.springframework.web: DEBUG

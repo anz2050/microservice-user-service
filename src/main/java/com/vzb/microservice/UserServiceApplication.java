@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 public class UserServiceApplication {
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserServiceApplication.class);
-
+	
 	public static void main(String[] args) {
 		logger.trace("Starting main method...");
 		SpringApplication.run(UserServiceApplication.class, args);
